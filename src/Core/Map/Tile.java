@@ -2,6 +2,7 @@ package Core.Map;
 
 import Core.GameObjects.Updatable;
 import Gui.Drawable;
+import Utilities.ColorFinder;
 
 import java.awt.*;
 import java.util.Random;
@@ -11,14 +12,17 @@ import java.util.Random;
  */
 public class Tile implements Drawable, Updatable {
 
+    public static int TILE_SIZE = 7;
+
     private static Random randomGenerator = new Random(System.currentTimeMillis());
     private int energy;
     private Point location;
+    private ColorFinder color = new ColorFinder(new Color(150, 95, 0), new Color(38, 106, 46));
 
     public Tile(Point location) {
 
         this.location = location;
-        this.energy = randomGenerator.nextInt(2000);
+        this.energy = randomGenerator.nextInt(2500);
 
     }
 
@@ -42,21 +46,15 @@ public class Tile implements Drawable, Updatable {
 
     public void draw(Graphics g) {
 
-        double ys = ((double) (Math.min(10000, getEnergy())) / 10000.0);
+        g.setColor(color.getColorInRange(Math.min(10000, getEnergy()), 10000));
 
-        double xs = 1.0 - ys;
+        int x = getLocation().x * TILE_SIZE;
+        int y = getLocation().y * TILE_SIZE;
 
-        Color currentColor = new Color((int) (255 * xs), (int) (255 * ys), 0);
-
-        g.setColor(currentColor);
-
-        int x = getLocation().x;
-        int y = getLocation().y;
-
-        g.fillRect(x * 7, y * 7, 7, 7);
+        g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
 
         g.setColor(Color.WHITE);
-        g.drawRect(x * 7, y * 7, 7, 7);
+        g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
 
     }
 

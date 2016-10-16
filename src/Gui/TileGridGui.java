@@ -1,6 +1,7 @@
 package Gui;
 
 import Core.GameObjects.Updatable;
+import Core.Map.Tile;
 import Core.Map.TileGrid;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ public class TileGridGui extends JPanel implements Updatable {
     public TileGridGui(Dimension gridSize) {
 
         this.tileGrid = new TileGrid(gridSize);
+        this.setPreferredSize(new Dimension(getGridSize().width * Tile.TILE_SIZE, getGridSize().height * Tile.TILE_SIZE));
 
     }
 

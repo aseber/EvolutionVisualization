@@ -2,8 +2,6 @@ import Gui.TileGridGui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by asebe on 10/15/2016.
@@ -20,9 +18,9 @@ public class Start {
 
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(1000, 1000);
+        frame.setSize(frame.getSize());
 
-        Timer timer = new Timer(33, (e) -> {
+        Timer timer = new Timer(15, (e) -> {
 
                 tileGridGui.update();
 
