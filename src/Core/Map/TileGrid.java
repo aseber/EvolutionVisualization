@@ -34,7 +34,7 @@ public class TileGrid implements Updatable, Drawable {
 
     }
 
-    public void update() {
+    public void update(double interpolationDelta) {
 
         int width = getGridSize().width;
         int height = getGridSize().height;
@@ -43,7 +43,7 @@ public class TileGrid implements Updatable, Drawable {
 
             for (int y = 0; y < height; y++) {
 
-                getTile(new Point(x, y)).update();
+                getTile(new Point(x, y)).update(interpolationDelta);
 
             }
 

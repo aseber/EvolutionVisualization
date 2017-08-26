@@ -1,3 +1,4 @@
+import Core.GameTime.VariableGameTimer;
 import Gui.TileGridGui;
 
 import javax.swing.*;
@@ -20,14 +21,10 @@ public class Start {
         frame.setVisible(true);
         frame.setSize(frame.getSize());
 
-        Timer timer = new Timer(15, (e) -> {
+        VariableGameTimer gameTimer = new VariableGameTimer(60, tileGridGui::update);
+        gameTimer.start();
 
-                tileGridGui.update();
 
-        });
-
-        timer.setRepeats(true);
-        timer.start();
 
     }
 

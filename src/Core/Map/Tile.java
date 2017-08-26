@@ -15,7 +15,7 @@ public class Tile implements Drawable, Updatable {
     public static int TILE_SIZE = 7;
 
     private static Random randomGenerator = new Random(System.currentTimeMillis());
-    private int energy;
+    private double energy;
     private Point location;
     private ColorFinder color = new ColorFinder(new Color(150, 95, 0), new Color(38, 106, 46));
 
@@ -26,19 +26,19 @@ public class Tile implements Drawable, Updatable {
 
     }
 
-    public void update() {
+    public void update(double interpolationDelta) {
 
-        addEnergy(randomGenerator.nextInt(35));
+        addEnergy(randomGenerator.nextInt(35) * interpolationDelta);
 
     }
 
-    private void addEnergy(int energy) {
+    private void addEnergy(double energy) {
 
         this.energy += energy;
 
     }
 
-    private int getEnergy() {
+    private double getEnergy() {
 
         return energy;
 
@@ -46,7 +46,7 @@ public class Tile implements Drawable, Updatable {
 
     public void draw(Graphics g) {
 
-        g.setColor(color.getColorInRange(Math.min(10000, getEnergy()), 10000));
+        g.setColor(color.getColorInRange(Math.min(10000.0, getEnergy()), 10000.0));
 
         int x = getLocation().x * TILE_SIZE;
         int y = getLocation().y * TILE_SIZE;

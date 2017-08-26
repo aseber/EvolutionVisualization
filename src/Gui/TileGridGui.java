@@ -21,15 +21,15 @@ public class TileGridGui extends JPanel implements Updatable {
 
     }
 
-    public void update() {
+    public void update(double interpolationDelta) {
 
+        tileGrid.update(interpolationDelta);
         this.repaint();
 
     }
 
     public void paintComponent(Graphics g) {
 
-        tileGrid.update();
         tileGrid.draw(g);
 
     }

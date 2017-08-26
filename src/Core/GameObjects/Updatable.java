@@ -5,6 +5,6 @@ package Core.GameObjects;
  */
 public interface Updatable {
 
-    void update();
+    void update(double interpolationDelta);
 
 }

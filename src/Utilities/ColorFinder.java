@@ -19,9 +19,9 @@ public class ColorFinder {
 
     }
 
-    public Color getColorInRange(int value, int max) {
+    public Color getColorInRange(double value, double max) {
 
-        double percentage = (double) value / (double) max;
+        double percentage = value / max;
 
         int r = beginColor.getRed() + (int) (percentage * rDifference);
         int g = beginColor.getGreen() + (int) (percentage * gDifference);
