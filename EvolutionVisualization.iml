@@ -7,5 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="jlibnoise">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../jlibnoise/src/main/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jlibnoise" level="project" />
+    <orderEntry type="library" name="jlibnoise" level="project" />
+    <orderEntry type="library" name="org.lwjgl:lwjgl:3.0.0b" level="project" />
   </component>
 </module>
